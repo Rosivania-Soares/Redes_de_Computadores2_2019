@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="redes.css">
+    <title>Redes</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        function somarValores() {
+
+            var valor = document.getElementById('texto').value
+            var tam = valor.length + 8;
+
+            var s1 = document.getElementById('s1').value;
+            var origem = parseInt(s1, 10).toString(2);
+            var origem = ('0000000000000000' + origem).slice(-16);
+
+            var s2 = document.getElementById('s2').value;
+            var destino = parseInt(s2, 10).toString(2);
+            var destino = ('0000000000000000' + destino).slice(-16);
+
+            var s3 = parseInt(tam, 10).toString(2);
+            var s3 = ('0000000000000000' + s3).slice(-16);
+
+            var total = parseInt(s1) + parseInt(s2) + parseInt(tam);
+
+            alert('dados estão integros');  
+
+
+//-------------------------------checksum------------------------------------------
+            var aux = 0;
+            var res = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+            
+            for (var i = 0; i < 16; i++) {
+                if (total > 0) {
+                    aux = total % 2;
+                    res[i] = Math.trunc(aux);
+                    total = (total / 2);
+                }
+            }
+            var res = res.reverse();
+
+            for (var i = 0; i < 16; i++) {
+                if (res[i] == 0) {
+                    res[i] = 1;
+                } else {
+                    res[i] = 0;
+                }
+            }
+//-------------------------Imprimindo resultado ----------------------------------------
+            //checksum
+            document.getElementById("checksum").innerHTML = res.join("");       
+            // porta origem
+            document.getElementById('result').value = origem;
+            //porta destino
+            document.getElementById('result2').value = destino;
+            //comprimento
+            document.getElementById('result3').value = s3;
+
+
+
+        }
+    </script>
+    </head>
+
+    <body>
+        <div id="form">
+
+            <label>Porta Origem:</label>
+            <input id="s1" type="text" />
+            <label>Porta destino: </label>
+            <input id="s2" type="text" /><br>
+            <label id="ajust">Palavra:</label>
+            <input id="texto" rows="5" cols="30"></input><br>
+            <button id="somar" onclick="somarValores(), checksum()">Calcular</button>
+        </div>
+        <h2>Resultado em Binario</h2>
+        <div id="form">
+
+            <label>Porta Origem:</label>
+            <input id="result" type="text" />
+            <label>Porta destino:</label>
+            <input id="result2" type="text" /><br>
+            <label>Comprimento:</label>
+            <input id="result3" type="text" />
+            <label>checksum:</label>
+            <div id="check">
+                <p id="checksum"></p>
+            </div>
+
+        </div>
+        <footer>
+        <div id="footer">
+            <ul>
+                <li><a href="#">Alunas:</a></li>
+                <li><a href="#">Rosivânia</a></li>
+                <li><a href="#">Renata</a></li>
+                
+            </ul>
+        </div>
+    </footer>
+    </body>
+
+</html>

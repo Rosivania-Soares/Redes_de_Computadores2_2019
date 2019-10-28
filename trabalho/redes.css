@@ -1,0 +1,80 @@
+body{
+    background-image: url(img.png);
+    background-size: cover;
+    
+}
+h2{
+    color: white;
+    background-color: #335145 ;
+    text-align: center;
+    margin: 3% 30% 0% 30%;
+}
+#ajust{
+    padding-left: 66px;
+}
+#form{
+    background-color: #03312E;
+    margin: 2% 20% 0% 20%;
+    padding-bottom: 2%;
+    border: 2px solid black;
+    border-radius: 20px;
+   
+}
+label{
+    padding-left: 20px;
+    font-size: 20px;
+    color:#EBEBD3;
+}
+input{
+    margin: 2%;
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+}
+button{
+    border-radius: 10px;
+    background-color: #335145;
+    color: ivory;
+    margin: 0% 0% 0% 48%;
+    height: 45px;
+    width: 100px;
+    font-size: 20px;
+}
+p{
+    color: brown;
+}
+#check{
+    border: 1px solid black;
+    margin: 0 5% 0 68%;
+     height: 40px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+}
+footer{
+        background: #335145;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    position: relative; 
+    width: 40%;
+    }
+
+    footer li {
+      display: inline;
+      list-style-type: none;
+      line-height: 10px;
+    }
+
+    footer li a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer li a:visited {
+      text-decoration: none 
+    }
+
+   
+
